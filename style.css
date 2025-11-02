@@ -161,7 +161,7 @@ section {
 }
 
 .story-full.expanded {
-    max-height: 1000px;
+    max-height: 2000px;
     transition: max-height 0.8s ease-in;
 }
 
@@ -199,7 +199,7 @@ section {
     transform: translateY(0);
 }
 
-.btn-icon {
+.read-more-btn .btn-icon {
     transition: var(--transition);
     display: inline-block;
 }
@@ -279,7 +279,7 @@ section {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn-icon {
+.donation-btn .btn-icon {
     font-size: 1.5rem;
 }
 

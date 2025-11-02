@@ -18,7 +18,7 @@ To personalize this memorial site:
 1. **Images**: Replace the placeholder images in `index.html` with actual photos (line 23-37)
 2. **Name and Dates**: Update the header text in `index.html` (line 14-15)
 3. **Life Story**: Edit the story content in `index.html` (line 45-61)
-4. **Donation Links**: Update the href attributes for donation buttons (line 71-83)
+4. **Donation Links**: Update the href attributes for donation buttons (line 81-92)
 5. **Colors**: Modify CSS variables in `style.css` (line 9-16) to match your preferred theme
 
 ## Local Development
