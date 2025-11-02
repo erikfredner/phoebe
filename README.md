@@ -8,7 +8,7 @@ A beautiful, mobile-first memorial web application designed to honor and celebra
 - **Memorial Photo**: Single elegant photo display with subtle hover effects
 - **Life Story Section**: Share a meaningful tribute with an expandable "Read More" feature
 - **Donation Button**: Single customizable action button for charitable donations
-- **Elegant Styling**: Clean white and gray color palette with smooth animations
+- **Elegant Styling**: Minimalist design with simplified color palette (slate gray and white)
 - **GitHub Pages Ready**: Configured for easy deployment
 
 ## Customization
@@ -19,7 +19,7 @@ To personalize this memorial site:
 2. **Name and Dates**: Update the header text in `index.html` (line 14-15)
 3. **Life Story**: Edit the story content in `index.html` (line 45-61)
 4. **Donation Link**: Update the href attribute for the donation button (line 73)
-5. **Colors**: Modify CSS variables in `style.css` (line 9-16) to match your preferred theme
+5. **Colors**: Modify CSS variables in `style.css` (line 8-14) to match your preferred theme
 
 ## Local Development
 
