@@ -5,20 +5,20 @@ A beautiful, mobile-first memorial web application designed to honor and celebra
 ## Features
 
 - **Mobile-First Responsive Design**: Optimized for all devices, from smartphones to desktop computers
-- **Photo Gallery**: Showcase 5 cherished memories with an elegant grid layout
+- **Memorial Photo**: Single elegant photo display with subtle hover effects
 - **Life Story Section**: Share a meaningful tribute with an expandable "Read More" feature
-- **Donation Buttons**: Three customizable action buttons for memorial donations and flowers
-- **Elegant Styling**: Warm, respectful color palette with smooth animations
+- **Donation Button**: Single customizable action button for charitable donations
+- **Elegant Styling**: Clean white and gray color palette with smooth animations
 - **GitHub Pages Ready**: Configured for easy deployment
 
 ## Customization
 
 To personalize this memorial site:
 
-1. **Images**: Replace the placeholder images in `index.html` with actual photos (line 23-37)
+1. **Image**: Replace the placeholder image in `index.html` with an actual photo (line 23)
 2. **Name and Dates**: Update the header text in `index.html` (line 14-15)
 3. **Life Story**: Edit the story content in `index.html` (line 45-61)
-4. **Donation Links**: Update the href attributes for donation buttons (line 81-92)
+4. **Donation Link**: Update the href attribute for the donation button (line 73)
 5. **Colors**: Modify CSS variables in `style.css` (line 9-16) to match your preferred theme
 
 ## Local Development

@@ -24,41 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Optional: Add fade-in animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe gallery items for scroll animations
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(item);
-    });
-    
-    // Add smooth hover effect for donation buttons
-    const donationBtns = document.querySelectorAll('.donation-btn');
-    donationBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+    // Add smooth hover effect for donation button
+    const donationBtn = document.querySelector('.donation-btn');
+    if (donationBtn) {
+        donationBtn.addEventListener('click', function(e) {
             // For demo purposes, prevent default and show alert
-            // In production, these would link to actual donation pages
+            // In production, this would link to actual donation page
             if (this.getAttribute('href') === '#') {
                 e.preventDefault();
                 const btnLabel = this.querySelector('.btn-label').textContent;
                 alert(`Thank you for considering a donation to: ${btnLabel}\n\nThis is a demo. In a live site, this would redirect to the donation page.`);
             }
         });
-    });
+    }
 });
