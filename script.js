@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setupCarousel(root) {
 	const track = root.querySelector('[data-carousel-track]');
-	const frame = root.querySelector('[data-carousel-frame]');
 	const prevBtn = root.querySelector('[data-carousel-prev]');
 	const nextBtn = root.querySelector('[data-carousel-next]');
 	const dotsWrapper = root.querySelector('[data-carousel-dots]');
@@ -80,7 +79,6 @@ function setupCarousel(root) {
 			slide.setAttribute('aria-hidden', idx === currentIndex ? 'false' : 'true');
 		});
 		root.style.setProperty('--active-index', currentIndex);
-		frame?.classList.remove('is-dragging');
 		return;
 	}
 
@@ -124,66 +122,6 @@ function setupCarousel(root) {
 			}
 		});
 	});
-
-	const dragState = {
-		isDragging: false,
-		startX: 0,
-		currentX: 0,
-	};
-
-	const startDrag = (clientX) => {
-		dragState.isDragging = true;
-		dragState.startX = clientX;
-		dragState.currentX = clientX;
-		track.style.transition = 'none';
-		frame?.classList.add('is-dragging');
-	};
-
-	const moveDrag = (clientX) => {
-		if (!dragState.isDragging) {
-			return;
-		}
-		dragState.currentX = clientX;
-		const delta = dragState.currentX - dragState.startX;
-		const offset = -currentIndex * root.offsetWidth + delta;
-		track.style.transform = `translateX(${offset}px)`;
-	};
-
-	const endDrag = () => {
-		if (!dragState.isDragging) {
-			return;
-		}
-
-		const delta = dragState.currentX - dragState.startX;
-		const threshold = root.offsetWidth * 0.2;
-		track.style.removeProperty('transition');
-		track.style.removeProperty('transform');
-		frame?.classList.remove('is-dragging');
-		dragState.isDragging = false;
-
-		if (Math.abs(delta) > threshold) {
-			goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
-		} else {
-			updateSlides();
-		}
-	};
-
-	const handleTouchStart = (event) => startDrag(event.touches[0].clientX);
-	const handleTouchMove = (event) => moveDrag(event.touches[0].clientX);
-	const handleTouchEnd = () => endDrag();
-
-	track.addEventListener('touchstart', handleTouchStart, { passive: true });
-	track.addEventListener('touchmove', handleTouchMove, { passive: true });
-	track.addEventListener('touchend', handleTouchEnd);
-	track.addEventListener('touchcancel', endDrag);
-
-	track.addEventListener('mousedown', (event) => {
-		event.preventDefault();
-		startDrag(event.clientX);
-	});
-
-	window.addEventListener('mousemove', (event) => moveDrag(event.clientX));
-	window.addEventListener('mouseup', endDrag);
 
 	updateSlides();
 }
