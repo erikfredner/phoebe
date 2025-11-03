@@ -7,18 +7,13 @@
 
 :root {
     --color-background: #f8f7f3;
-    --color-surface: #f4f2ed;
-    --color-panel: #efede7;
     --color-border: #dcd8d0;
     --color-text: #61605b;
     --color-text-soft: #7f7d78;
-    --color-button: #e7e4dd;
-    --color-button-hover: #dedbd3;
     --color-button-accent: #f5c9d8;
     --color-button-accent-hover: #f0b0c8;
     --color-button-accent-border: #e09bb4;
     --color-focus: #cfcac0;
-    --shadow-soft: 0 24px 48px rgba(120, 118, 114, 0.08);
     --transition: all 0.3s ease;
     --story-width: 700px;
 }
@@ -35,21 +30,20 @@ a {
     color: inherit;
     text-decoration: underline;
     text-decoration-color: var(--color-border);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 a:hover {
-    text-decoration-color: var(--color-text);
+    text-decoration-color: currentColor;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: var(--color-background);
 }
 
 /* Header Section */
 .memorial-header {
-    background: var(--color-background);
     color: var(--color-text);
     padding: 2.25rem 1.25rem;
     text-align: center;
@@ -98,7 +92,6 @@ section {
 
 /* Photo Section */
 .photo-section {
-    background: var(--color-background);
     padding: 1.75rem 1.25rem;
 }
 
@@ -130,30 +123,22 @@ section {
 .story-content {
     max-width: var(--story-width);
     margin: 0 auto;
-    text-align: center;
-}
-
-/* Donation Section */
-.donation-section {
-    background: var(--color-background);
-    text-align: center;
-}
-
-.story-content p,
-.donation-text {
-    font-size: 1.1rem;
-    color: var(--color-text);
-    margin-bottom: 0.95rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.8;
+    display: grid;
+    gap: 0.95rem;
     text-align: left;
 }
 
-.donation-text:last-child,
-.story-content p:last-child {
-    margin-bottom: 0;
+.story-content p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.donation-section {
+    text-align: center;
 }
 
 .donation-buttons {
@@ -161,7 +146,8 @@ section {
     flex-direction: column;
     gap: 0.65rem;
     max-width: 350px;
-    margin: 0 auto;
+    margin-inline: auto;
+    margin-top: 1.4rem;
 }
 
 .donation-btn {
@@ -176,7 +162,6 @@ section {
     transition: var(--transition);
     font-weight: 500;
     box-shadow: 0 14px 30px rgba(223, 150, 178, 0.25);
-    font-family: inherit;
     background: linear-gradient(135deg, var(--color-button-accent), #f9dbe7);
     color: #4f2735;
     border: 1px solid var(--color-button-accent-border);
@@ -190,7 +175,6 @@ section {
 
 /* Footer */
 .memorial-footer {
-    background: var(--color-background);
     color: var(--color-text);
     padding: 1.6rem 1.25rem;
     text-align: center;
