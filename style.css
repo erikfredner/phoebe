@@ -95,150 +95,75 @@ section {
     padding: 1.75rem 1.25rem;
 }
 
-.photo-carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.memorial-photo {
-    position: relative;
-    width: min(80vw, calc(var(--story-width) / 2));
-    max-width: calc(var(--story-width) / 2);
-    aspect-ratio: 1 / 1;
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
     margin: 0 auto;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 16px 36px rgba(160, 158, 153, 0.15);
-    transition: var(--transition);
-    user-select: none;
-    cursor: grab;
+    width: min(100%, 960px);
+    padding-block: 0.5rem;
+    list-style: none;
+    padding-inline: 0;
 }
 
-.memorial-photo img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.memorial-photo:hover {
-    box-shadow: 0 20px 40px rgba(160, 158, 153, 0.22);
-}
-
-.memorial-photo.is-dragging {
-    cursor: grabbing;
-}
-
-.carousel-track {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.4s ease;
-    transform: translateX(calc(var(--active-index, 0) * -100%));
-    touch-action: pan-y;
-}
-
-.carousel-slide {
-    flex: 0 0 100%;
-    height: 100%;
+.photo-item {
     margin: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: 0 4px 16px rgba(160, 158, 153, 0.12);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    aspect-ratio: 4 / 5;
+    display: grid;
 }
 
-.carousel-slide img {
+.photo-item img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.3s ease;
 }
 
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    border: 1px solid var(--color-border);
-    background: rgba(248, 247, 243, 0.85);
-    color: var(--color-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
+.photo-item:hover {
+    box-shadow: 0 16px 36px rgba(160, 158, 153, 0.18);
+    transform: translateY(-2px);
 }
 
-.carousel-btn span {
-    font-size: 1.2rem;
-    line-height: 1;
+.photo-item:hover img {
+    transform: scale(1.02);
 }
 
-.carousel-btn.prev {
-    left: 0.6rem;
-}
-
-.carousel-btn.next {
-    right: 0.6rem;
-}
-
-.carousel-btn:hover,
-.carousel-btn:focus-visible {
-    background: rgba(248, 247, 243, 1);
-    transform: translateY(-50%) scale(1.04);
-}
-
-.carousel-btn[hidden] {
-    display: none !important;
-}
-
-.carousel-dots {
-    display: flex;
-    gap: 0.45rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-dot {
-    width: 0.65rem;
-    height: 0.65rem;
-    border-radius: 50%;
-    border: 1px solid var(--color-border);
-    background: rgba(209, 205, 196, 0.4);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.carousel-dot.is-active {
-    background: var(--color-button-accent);
-    border-color: var(--color-button-accent-border);
-}
-
-.carousel-dot:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
-}
-
-.carousel-dots[hidden] {
-    display: none !important;
-}
-
-@media (max-width: 480px) {
-    .carousel-btn {
-        width: 1.9rem;
-        height: 1.9rem;
-        font-size: 1rem;
+@media (max-width: 640px) {
+    .photo-gallery {
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        grid-auto-columns: 85%;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        padding-block: 0.5rem 1rem;
+        padding-inline: 0.5rem;
     }
 
-    .carousel-btn.prev {
-        left: 0.45rem;
+    .photo-gallery::-webkit-scrollbar {
+        height: 8px;
     }
 
-    .carousel-btn.next {
-        right: 0.45rem;
+    .photo-gallery::-webkit-scrollbar-thumb {
+        background-color: rgba(97, 96, 91, 0.4);
+        border-radius: 999px;
+    }
+
+    .photo-item {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        border-radius: 14px;
+    }
+
+    .photo-item {
+        aspect-ratio: 3 / 4;
     }
 }
 
@@ -288,6 +213,8 @@ section {
     background: linear-gradient(135deg, var(--color-button-accent), #f9dbe7);
     color: #4f2735;
     border: 1px solid var(--color-button-accent-border);
+    font-weight: 700;
+    font-variant-caps: small-caps;
 }
 
 .donation-btn:hover {
@@ -380,8 +307,13 @@ section {
     }
 }
 
-button:focus,
-a:focus {
+button:focus-visible,
+a:focus-visible {
     outline: 3px solid var(--color-focus);
     outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+    outline: none;
 }

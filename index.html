@@ -20,19 +20,32 @@
 
         <main>
             <section class="photo-section">
-                <div class="photo-carousel" data-carousel data-images="1.JPG,2.JPG,3.JPG,4.JPG,5.JPG,6.JPG,7.JPG,8.JPG"
-                    data-image-path="images/" data-alt-template="Phoebe photo {index}">
-                    <div class="memorial-photo" data-carousel-frame>
-                        <div class="carousel-track" data-carousel-track></div>
-                        <button type="button" class="carousel-btn prev" data-carousel-prev aria-label="Previous photo">
-                            <span aria-hidden="true">&#10094;</span>
-                        </button>
-                        <button type="button" class="carousel-btn next" data-carousel-next aria-label="Next photo">
-                            <span aria-hidden="true">&#10095;</span>
-                        </button>
-                    </div>
-                    <div class="carousel-dots" data-carousel-dots role="tablist" aria-label="Carousel pagination"></div>
-                </div>
+                <ul class="photo-gallery" aria-labelledby="photos-heading">
+                    <li class="photo-item">
+                        <img src="images/1.JPG" alt="Phoebe photo 1" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/2.JPG" alt="Phoebe photo 2" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/3.JPG" alt="Phoebe photo 3" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/4.JPG" alt="Phoebe photo 4" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/5.JPG" alt="Phoebe photo 5" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/6.JPG" alt="Phoebe photo 6" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/7.JPG" alt="Phoebe photo 7" loading="lazy" decoding="async">
+                    </li>
+                    <li class="photo-item">
+                        <img src="images/8.JPG" alt="Phoebe photo 8" loading="lazy" decoding="async">
+                    </li>
+                </ul>
             </section>
 
             <section class="story-section" aria-labelledby="story-heading">
@@ -42,9 +55,8 @@
                         Our daughter Phoebe's 27 days were the most important of our lives.
                     </p>
                     <p>
-                        Phoebe was born with a complex congenital heart defect. She died shortly after the surgery
-                        needed to
-                        repair her heart due to unforeseen complications.
+                        Phoebe was born with a complex congenital heart defect. Due to unforeseen complications,
+                        she died shortly after the surgery needed to repair her heart.
                     </p>
                     <p>
                         But Phoebe's story is so much more than her illness. Her short life has
@@ -59,7 +71,8 @@
                     <p>
                         Please consider making a donation in memory of Phoebe to help
                         other children born with congenital heart defects.
-                        About <a href="https://www.cdc.gov/heart-defects/data/index.html">1% of babies</a> are born with
+                        About <a href="https://www.cdc.gov/heart-defects/data/index.html" aria-label="CDC CHD data"
+                            rel="noopener noreferrer" target="_blank">1% of babies</a> are born with
                         heart defects.
                     </p>
                     <p>
@@ -110,7 +123,6 @@
         </footer>
     </div>
 
-    <script src="script.js" defer></script>
 </body>
 
 </html>
